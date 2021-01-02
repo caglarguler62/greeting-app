@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Form from './components/Form'
 
 
 class App extends React.Component {
@@ -8,15 +8,14 @@ class App extends React.Component {
     this.state = {userName: 'Guest'};
     this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(e){
-  this.setState  ({userName: e.target.value.trim()? e.target.value : 'Guest'})
+  handleChange(name){
+  this.setState  ({userName: name.trim()? name: 'Guest'})
   }
   render(){
   return (
           <div>
             <h1>Hello {this.state.userName}</h1>
-            <label htmlFor="user_name">enter your name</label><br/>
-            <input id="user_name"type="text" onChange={this.handleChange}/>
+            <Form onInput={this.handleChange}/>
           </div>
         )
   }
