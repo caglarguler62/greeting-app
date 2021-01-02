@@ -1,32 +1,22 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React from 'react'
 
-// class Header extends React.Component {
-//   render(){
-//     return (
-//       <div>
-//         <h1>Hello Worls</h1>
-//         <p>this is parent/child-sibling app</p>
-//       </div>
-//     )
-//   }
-// }
+
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {userName: 'Guler'};
-  //   this.changeName = this.changeName.bind(this)
-  // }
-  // changeName(newName){
-  //   this.setState = ({userName: newName})
+    this.state = {userName: 'Guest'};
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(e){
+  this.setState  ({userName: e.target.value.trim()? e.target.value : 'Guest'})
   }
   render(){
   return (
           <div>
             <h1>Hello {this.state.userName}</h1>
             <label htmlFor="user_name">enter your name</label><br/>
-            <input id="user_name"type="text"/>
+            <input id="user_name"type="text" onChange={this.handleChange}/>
           </div>
         )
   }
